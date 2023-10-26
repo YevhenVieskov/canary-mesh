@@ -1,0 +1,19 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+
+phases:
+  install:
+    runtime-versions:
+       ruby: 2.6
+  build:
+    commands:
+       - aws s3 cp s3://${bucket_name}/task_def.json .
+       - aws s3 cp s3://${bucket_name}/appspec.yml .
+artifacts:
+  files:
+    - task_def.json
+    - appspec.yml
