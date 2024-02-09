@@ -3,7 +3,7 @@ check: aws-cli-exists pip-exists j2-exists gnu-sed-exists
 pip-exists: ; @which pip > /dev/null
 aws-cli-exists: ; @aws --version > /dev/null
 j2-exists: ; @which j2 > /dev/null
-gnu-sed-exists: ; @which gsed > /dev/null
+#gnu-sed-exists: ; @which gsed > /dev/null
 # Mac Install Commands
 #pip install aws-cli
 #pip install j2cli

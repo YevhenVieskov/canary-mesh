@@ -22,9 +22,9 @@ fi
 cd terraform/mesh-app
 
 # Edit your remote state file to be unique
-gsed -i "s/REPLACEBUCKET/$AWS_STATE_BUCKET/g" terraform.tf
-gsed -i "s/REPLACEKEY/$MESH_NAME/g" terraform.tf
-gsed -i "s/us-west-2/$DEFAULT_REGION/g" terraform.tf
+sed -i "s/REPLACEBUCKET/$AWS_STATE_BUCKET/g" terraform.tf
+sed -i "s/REPLACEKEY/$MESH_NAME/g" terraform.tf
+sed -i "s/us-west-2/$DEFAULT_REGION/g" terraform.tf
 
 # Pass variables into our terraform run
 export TF_VAR_app_name=$MESH_NAME
