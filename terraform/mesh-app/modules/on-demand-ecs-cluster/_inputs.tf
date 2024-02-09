@@ -68,7 +68,7 @@ variable "volume_size" {
 
 variable "on_demand_instance_type" {
   description = "Instance type to use for on-demand portion of cluster"
-  default     = "c4.2xlarge"
+  default     = "t3.small"  #"c4.2xlarge"
 }
 
 variable "on_demand_desired" {
