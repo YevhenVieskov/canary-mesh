@@ -164,7 +164,12 @@ resource "aws_iam_role_policy" "codepipeline" {
         {
             "Effect": "Allow",
             "Action": [
-                "ecr:DescribeImages"
+                "ecr:DescribeImages",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:CompleteLayerUpload",
+                "ecr:InitiateLayerUpload",
+                "ecr:PutImage",
+                "ecr:UploadLayerPart"
             ],
             "Resource": "*"
         }
