@@ -1,0 +1,35 @@
+Write python code for lambda function update_deployment_version that update deployment version 
+ChatGPT
+
+To create a Lambda function that updates the deployment version, you typically need to modify the source of truth where the deployment version is stored. This could involve updating an environment variable, a configuration file, or a database record, depending on your deployment process. Below is a Python code example for a Lambda function that updates the deployment version stored in an environment variable:
+
+python
+
+import os
+
+def update_deployment_version(event, context):
+    # Retrieve the new deployment version from the event payload
+    new_deployment_version = event['new_deployment_version']
+
+    try:
+        # Update the deployment version in the environment variable
+        os.environ['DEPLOYMENT_VERSION'] = new_deployment_version
+
+        return {
+            'statusCode': 200,
+            'body': f'Deployment version updated to: {new_deployment_version}'
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': f'Error occurred while updating deployment version: {str(e)}'
+        }
+
+In this code example:
+
+    The Lambda function retrieves the new deployment version from the event payload.
+    It updates the deployment version stored in the environment variable DEPLOYMENT_VERSION.
+    Ensure that new_deployment_version is provided as part of the event payload when invoking the Lambda function.
+    Adjust error handling and response messages according to your specific requirements.
+
+Make sure that the Lambda function has the necessary IAM permissions to modify environment variables. Additionally, consider using a more persistent storage mechanism if the deployment version needs to be retained across Lambda function invocations.

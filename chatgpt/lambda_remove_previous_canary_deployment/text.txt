@@ -1,0 +1,4 @@
+Write python code for lambda function remove_previous_canary_components that remove previous canary components
+To create a Lambda function that removes previous canary components, you would typically want to clean up any resources associated with the previous canary deployment. This might include stopping tasks, deleting ECS services, deregistering targets from load balancers, etc. Below is an example Python code for such a Lambda function:
+
+This code assumes that you pass information about the previous canary deployment (such as the service name, task definition, etc.) as part of the event payload. Adjust the code according to your specific requirements and architecture. Ensure that the Lambda function has appropriate IAM permissions to interact with ECS, ELB, and any other AWS services involved.

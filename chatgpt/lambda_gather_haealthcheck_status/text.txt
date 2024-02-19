@@ -1,0 +1,37 @@
+Write python code for lambda function gather_healthcheck_status that gather application healthcheck status
+ChatGPT
+
+To create a Lambda function that gathers application health check status, you'll need to interact with your application's health check endpoint or any monitoring system that provides this information. Below is a generic example where the Lambda function queries an application's health check endpoint:
+
+python
+
+import requests
+
+def gather_healthcheck_status(event, context):
+    # Replace 'health_check_url' with the actual URL of your application's health check endpoint
+    health_check_url = 'https://example.com/health'
+    
+    try:
+        # Send a GET request to the health check endpoint
+        response = requests.get(health_check_url)
+
+        # Check if the response status code indicates success (2xx)
+        if response.status_code >= 200 and response.status_code < 300:
+            return {
+                'statusCode': 200,
+                'body': 'Application is healthy'
+            }
+        else:
+            return {
+                'statusCode': response.status_code,
+                'body': 'Application health check failed'
+            }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': f'Error occurred while checking health status: {str(e)}'
+        }
+
+In this example, the Lambda function sends a GET request to the specified health_check_url. It checks if the response status code is within the range of 2xx, indicating success. If the response status code is not within that range, it considers the health check failed. If an exception occurs during the process, it returns a 500 status code along with the error message.
+
+Make sure to replace 'https://example.com/health' with the actual URL of your application's health check endpoint. Additionally, ensure that the Lambda function has the necessary IAM permissions to make HTTP requests if your application's health check endpoint is protected.

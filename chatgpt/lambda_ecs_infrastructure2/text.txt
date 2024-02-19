@@ -1,0 +1,16 @@
+Write python code for lambda function  that create infrastructure for canary deployment
+
+
+
+To create infrastructure for canary deployment in AWS using a Lambda function, you'll typically want to use the AWS Boto3 library to interact with AWS services. Here's a Python code example for a Lambda function that creates infrastructure for canary deployment:
+
+python
+
+In this code:
+
+    The Lambda function create_canary_infrastructure initializes Boto3 clients for ECS, ELBv2 (Elastic Load Balancing), EC2 (Elastic Compute Cloud), and any other AWS services needed for the infrastructure setup.
+    It defines the necessary configurations such as VPC ID, subnet IDs, security group ID, task definition name, container name, etc.
+    It then uses the ECS client to register a new task definition for the canary deployment, create or update the ECS service to use this task definition, and perform any other necessary configurations such as updating load balancer settings.
+    Finally, it returns a response indicating the successful creation of the infrastructure.
+
+Remember to replace placeholder values with your actual AWS resource IDs and configuration details. Additionally, ensure that the Lambda function has the necessary IAM permissions to interact with ECS, ELBv2, EC2, and any other AWS services used in the code.

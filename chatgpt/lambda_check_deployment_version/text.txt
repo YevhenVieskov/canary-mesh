@@ -1,0 +1,27 @@
+Write python code for lambda function check_deployment_version that check deployment version
+ChatGPT
+
+To create a Lambda function that checks the deployment version, you typically need to query some source of truth where the deployment version is stored. This could be an environment variable, a configuration file, or a database record, depending on how your deployment process is structured. Below is a generic example where the Lambda function checks an environment variable for the deployment version:
+
+python
+
+import os
+
+def check_deployment_version(event, context):
+    # Retrieve the deployment version from environment variables
+    deployment_version = os.environ.get('DEPLOYMENT_VERSION')
+
+    if deployment_version:
+        return {
+            'statusCode': 200,
+            'body': f'Deployment version: {deployment_version}'
+        }
+    else:
+        return {
+            'statusCode': 404,
+            'body': 'Deployment version not found'
+        }
+
+In this example, the Lambda function retrieves the deployment version from the environment variable DEPLOYMENT_VERSION. If the deployment version is found, it returns a response with status code 200 and the deployment version. If the deployment version is not found, it returns a response with status code 404.
+
+You need to ensure that the environment variable DEPLOYMENT_VERSION is set and updated correctly during your deployment process. Additionally, make sure that the Lambda function has the necessary IAM permissions to retrieve environment variables.

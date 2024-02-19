@@ -1,0 +1,31 @@
+Creating an AWS ECS Infrastructure for blue-green deployment using a lambda functions, step functions, AWS AppMesh with Terraform:
+
+Write Terraform code that describe your ECS infrastructure, including cluster, services, task definitions, load balancers, Virtual Private Cloud, AppMesh, Codedeploy, ECR.
+
+#Write python code for lambda function check_deployment_version that check deployment version
+
+#Write python code for lambda function deploy_canary_infrastructure that create infrastructure for canary deployment
+
+#Write python code for lambda function gather_healthcheck_status that gather application healthcheck status
+
+#Write python code for lambda function remove_previous_canary_components that remove previous canary components
+
+#Write python code for lambda function rollbackto_previous_canary that rollback to previous canary
+
+#Write python code for lambda function start_canary that start canary deployment
+
+Write python code for lambda function update_deployment_version that update deployment version 
+
+Write Terraform code that describe ECR triggers for lamda functions that orchestrates the blue-green deployment process.
+
+Write Terraform code that describe triggers CloudWatch Events for invoking the Lambda functions.
+
+Write Terraform code for step function that invoke blue-green deployment lambda functions
+
+
+
+Create Blue-Green Deployment Logic: Write Python code (either in a Lambda function or a standalone script) that orchestrates the blue-green deployment process. This would involve tasks like updating ECS task definitions, adjusting load balancer settings, and managing DNS records if necessary.
+
+    Configure Lambda Function: If you choose to use a Lambda function for deployment orchestration, write a Lambda function that triggers the blue-green deployment logic when invoked.
+
+    Set up Triggers: Define triggers for invoking the Lambda function, such as CloudWatch Events, S3 events, or API Gateway endpoints.
